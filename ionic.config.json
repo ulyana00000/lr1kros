@@ -1,0 +1,7 @@
+{
+  "name": "lrr1",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
