@@ -1,17 +1,25 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding">
+  <app-my-header [name]="'Чорномаз Уляна варіант 28'"></app-my-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <h2>Завдання 3</h2>
+  <p>Згенерувати матрицю розміром NxN. Знайдіть максимальний елемент усіх непарних рядків. Виокреміть ці рядки кольором, якщо сума елементів більше 50.</p>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-item>
+    <ion-label position="floating">Розмір матриці (N)</ion-label>
+    <ion-input type="number" [(ngModel)]="n"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="generateMatrix()">Згенерувати матрицю</ion-button>
+
+  <div *ngIf="matrix.length > 0">
+    <h3>Матриця:</h3>
+    <div *ngFor="let row of matrix; let i = index" 
+         [style.background]="highlightedRows[i] ? '#ffcccb' : 'transparent'"
+         class="matrix-row">
+      {{ row.join('  ') }}
+    </div>
+
+    <h3>Максимальні елементи непарних рядків:</h3>
+    <p>{{ getFilteredMaxValues() }}</p>
+  </div>
 </ion-content>
