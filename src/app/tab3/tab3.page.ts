@@ -25,7 +25,7 @@ export class Tab3Page {
     for (let i = 0; i < this.n; i++) {
       let row: number[] = [];
       for (let j = 0; j < this.n; j++) {
-        row.push(Math.floor(Math.random() * 20) + 1); // Генеруємо випадкові числа 1-20
+        row.push(Math.floor(Math.random() * 20) + 1); 
       }
       this.matrix.push(row);
     }

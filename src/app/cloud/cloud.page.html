@@ -1,0 +1,43 @@
+<ion-content class="ion-padding">
+  <app-my-header [name]="'Чорномаз Уляна'"></app-my-header>
+
+  <ion-spinner *ngIf="loading"></ion-spinner>
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <ng-container *ngFor="let category of productList.getCategoryList()">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Категорія: {{ category }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let product of groupedProducts[category]">
+            <ion-label>
+              <h2>{{ product.name }}</h2>
+              <p>Одиниця: {{ product.unit }} | Кількість: {{ product.quantity }} | Ціна: {{ product.price }} грн</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
+  <ion-card *ngIf="!loading && productList.products.length">
+    <ion-card-header>
+      <ion-card-title>Підсумки</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Загальна кількість товарів: {{ getTotalQuantity() }}</p>
+      <p>Загальна вартість складу: {{ getTotalValue() | number:'1.2-2' }} грн</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Графік кількості товарів по категоріях</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #productChart style="width: 100%; height: 400px;"></canvas>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
