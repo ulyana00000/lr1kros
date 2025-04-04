@@ -1,0 +1,25 @@
+<ion-content class="ion-padding">
+ 
+
+  <app-my-header [name]="'Чорномаз Уляна'"></app-my-header>
+
+  <p *ngIf="loading">Завантаження даних...</p>
+  <p *ngIf="error">{{ error }}</p>
+
+  <h2>📚 Всі книги</h2>
+  <ion-card *ngFor="let book of books">
+    <ion-card-content>
+      {{ book.displayInfo() }}
+    </ion-card-content>
+  </ion-card>
+
+  <h2>🔍 Мінімальні за сторінками у кожному жанрі</h2>
+  <ion-card *ngFor="let genre of (minByGenre | keyvalue)">
+    <ion-card-header>
+      <ion-card-title>{{ genre.key }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ genre.value.displayInfo() }}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
