@@ -1,11 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CloudPage } from './cloud.page';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('CloudPage', () => {
   let component: CloudPage;
   let fixture: ComponentFixture<CloudPage>;
 
-  beforeEach(() => {
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [
+        CloudPage, // ✅ standalone
+        HttpClientTestingModule // ✅ додаємо
+      ]
+    }).compileComponents();
+
     fixture = TestBed.createComponent(CloudPage);
     component = fixture.componentInstance;
     fixture.detectChanges();

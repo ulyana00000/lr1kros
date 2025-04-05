@@ -1,22 +1,19 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MyHeaderComponent } from './my-header.component';
 
 describe('MyHeaderComponent', () => {
   let component: MyHeaderComponent;
   let fixture: ComponentFixture<MyHeaderComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ MyHeaderComponent ],
-      imports: [IonicModule.forRoot()]
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [MyHeaderComponent] // ✅ standalone, тому тут!
     }).compileComponents();
 
     fixture = TestBed.createComponent(MyHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
