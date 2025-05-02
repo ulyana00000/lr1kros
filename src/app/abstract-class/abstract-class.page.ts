@@ -12,7 +12,7 @@ import { createBook } from '../class/book-factory';
   templateUrl: './abstract-class.page.html',
   styleUrls: ['./abstract-class.page.scss'],
   standalone: true,
-  imports: [ IonCardTitle, IonCardHeader, IonCard, IonCardContent, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, MyHeaderComponent]
+  imports: [ IonCardTitle, IonCardHeader, IonCard, IonCardContent, IonContent, CommonModule, FormsModule, MyHeaderComponent]
 })
 export class AbstractClassPage implements OnInit {
   books: Book[] = [];
@@ -20,7 +20,7 @@ export class AbstractClassPage implements OnInit {
   loading = true;
   error = '';
 
-  jsonUrl = 'https://api.jsonbin.io/v3/b/67efb9458561e97a50f88d91'; // заміни на своє реальне JSON-посилання
+  jsonUrl = 'https://api.jsonbin.io/v3/b/67efb9458561e97a50f88d91';
 
   constructor(private http: HttpClient) {}
 
@@ -31,17 +31,25 @@ export class AbstractClassPage implements OnInit {
   loadBooks() {
     this.http.get<any>(this.jsonUrl).subscribe({
       next: (response) => {
-        const data = response.record; // ✅ тут правильна структура
-        this.books = data.map(createBook);
-        this.findMinPagesByGenre();
+        const data = response.record;
+  
+        try {
+          this.books = data.map(createBook); 
+          this.findMinPagesByGenre();
+        } catch (e) {
+          this.error = ' Помилка при створенні книги: ' + (e as Error).message;
+          console.error(e);
+        }
+  
         this.loading = false;
       },
       error: () => {
-        this.error = 'Помилка завантаження даних';
+        this.error = ' Помилка завантаження даних';
         this.loading = false;
       }
     });
   }
+  
   
 
   findMinPagesByGenre() {

@@ -9,8 +9,8 @@ describe('AbstractClassPage', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        AbstractClassPage, // ✅ standalone
-        HttpClientTestingModule // ✅ підключаємо для HttpClient
+        AbstractClassPage, 
+        HttpClientTestingModule 
       ]
     }).compileComponents();
 

@@ -12,7 +12,7 @@ import { MyHeaderComponent } from '../my-header/my-header.component';
   imports: [IonicModule, FormsModule, CommonModule, MyHeaderComponent], 
 })
 export class Tab3Page {
-  n: number = 3; // Початкове значення для розміру матриці
+  n: number = 3; 
   matrix: number[][] = [];
   maxValues: number[] = [];
   highlightedRows: boolean[] = [];
@@ -38,7 +38,7 @@ export class Tab3Page {
     this.highlightedRows = [];
 
     for (let i = 0; i < this.n; i++) {
-      if (i % 2 === 0) { // Непарні рядки (0, 2, 4...) через індексацію з 0
+      if (i % 2 === 0) { // Непарні рядки (0, 2, 4...) 
         let maxVal = Math.max(...this.matrix[i]);
         let sum = this.matrix[i].reduce((a, b) => a + b, 0);
         this.maxValues.push(maxVal);

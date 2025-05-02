@@ -33,7 +33,7 @@ export class Tab1Page {
   }
 
   getDigitProduct(num: number): number {
-    return num.toString().split('').map(Number).reduce((a, b) => a * b, 1);
+    return num.toString().split('').map(Number).reduce((a, b) => a * b, 1);//рядок → масив цифр → добуток всіх цифр
   }
 
   getDigitSum(num: number): number {

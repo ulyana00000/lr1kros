@@ -4,7 +4,7 @@ describe('ScientificBook', () => {
   it('створюється з правильним полем field', () => {
     const book = new ScientificBook('Квантова фізика', 'Гокінг', 400, 'Фізика');
     expect(book.field).toBe('Фізика');
-    expect(book.getGenre()).toBe('Наука: Фізика');
+    expect(book.getGenre()).toBe('Наука');
   });
 
   it('displayInfo() повертає опис з автором і сторінками', () => {

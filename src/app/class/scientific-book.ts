@@ -1,5 +1,4 @@
 import { Book } from './book';
-
 export class ScientificBook extends Book {
   constructor(
     title: string,
@@ -8,9 +7,16 @@ export class ScientificBook extends Book {
     public field: string
   ) {
     super(title, author, pages);
+    if (pages <= 0) {
+      throw new Error('Кількість сторінок повинна бути більшою за 0');
+    }
+    if (!field || field.trim() === '') {
+      throw new Error('Поле науки не може бути порожнім');
+    }
   }
 
   getGenre(): string {
-    return `Наука: ${this.field}`;
+    return `Наука`;
   }
 }
+

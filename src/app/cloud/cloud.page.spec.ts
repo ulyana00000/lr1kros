@@ -9,8 +9,8 @@ describe('CloudPage', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        CloudPage, // ✅ standalone
-        HttpClientTestingModule // ✅ додаємо
+        CloudPage, 
+        HttpClientTestingModule 
       ]
     }).compileComponents();
 

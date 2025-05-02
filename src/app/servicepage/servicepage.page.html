@@ -1,0 +1,36 @@
+
+
+
+<ion-content class="ion-padding">
+  <app-my-header [name]="'Чорномаз Уляна, варіант 28'"></app-my-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Робота з сервісами: обчислення atan(x)</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button expand="full" (click)="calculate()">Обчислити</ion-button>
+      <p *ngIf="!tabData.length" class="ion-text-center ion-padding-top">
+        Натисніть кнопку <b>"Обчислити"</b>, щоб побачити результати.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list *ngIf="tabData.length">
+    <ion-list-header>
+      <ion-label class="ion-text-center"><b>Результати розрахунків</b></ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let result of formatResults()">
+      <ion-label>{{ result }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-card *ngIf="tabData.length">
+    <ion-card-header>
+      <ion-card-title>Графік обчислення atan(x)</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #chartCanvas style="width: 100%; height: 400px;"></canvas>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>

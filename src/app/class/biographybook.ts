@@ -13,7 +13,7 @@ export class BiographyBook extends Book {
     }
   }
 
-  getGenre(): string {
-    return `Біографія: ${this.person}`;
+  getGenre(): string { 
+    return `Біографія`;
   }
 }

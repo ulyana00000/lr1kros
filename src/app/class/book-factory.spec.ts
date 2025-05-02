@@ -28,7 +28,7 @@ describe('Book Factory', () => {
 
     const book: Book = createBook(data);
     expect(book instanceof ScientificBook).toBeTrue();
-    expect(book.getGenre()).toBe('Наука: Фізика');
+    expect(book.getGenre()).toBe('Наука');
   });
 
   it('створює BiographyBook, якщо є поле person', () => {
@@ -41,7 +41,7 @@ describe('Book Factory', () => {
 
     const book: Book = createBook(data);
     expect(book instanceof BiographyBook).toBeTrue();
-    expect(book.getGenre()).toBe('Біографія: Ілон Маск');
+    expect(book.getGenre()).toBe('Біографія');
   });
 
   it('викидає помилку, якщо тип книги не визначений', () => {
@@ -49,7 +49,7 @@ describe('Book Factory', () => {
       title: 'Невідоме',
       author: 'Ніхто',
       pages: 100
-      // без genre, field або person
+      
     };
 
     expect(() => createBook(data)).toThrowError('Невідомий тип книги');

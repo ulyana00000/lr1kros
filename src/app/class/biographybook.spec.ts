@@ -7,7 +7,7 @@ describe('BiographyBook', () => {
     expect(book.author).toBe('Ешлі Венс');
     expect(book.pages).toBe(400);
     expect(book.person).toBe('Ілон Маск');
-    expect(book.getGenre()).toBe('Біографія: Ілон Маск');
+    expect(book.getGenre()).toBe('Біографія');
   });
 
   it('displayInfo повертає правильний рядок', () => {

@@ -16,13 +16,18 @@
 
   <ion-button expand="full" (click)="calculate()">Обчислити</ion-button>
 
-  <ion-card *ngIf="numbers.length > 0">
+  <ion-card *ngIf="numbers.length">
     <ion-card-header>
-      <ion-card-title>Результат</ion-card-title>
+      <ion-card-title>Результати</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <p>Кількість чисел: {{ count }}</p>
-      <p>Числа: {{ numbers.join(', ') }}</p>
+      Числа: {{ numbers.join(', ') }} <br>
+      Кількість: {{ count }}
     </ion-card-content>
   </ion-card>
+  
+  <ion-card *ngIf="message">
+    <ion-card-content>{{ message }}</ion-card-content>
+  </ion-card>
+  
 </ion-content>

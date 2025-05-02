@@ -25,7 +25,7 @@ export class ProductList {
     return Array.from(new Set(this.products.map(p => p.category)));
   }
   
-  // 🔹 Додаємо метод для очищення списку
+  //очищення списку
   clear() {
     this.products = [];
   }
